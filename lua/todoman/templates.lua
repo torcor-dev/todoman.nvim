@@ -1,3 +1,5 @@
+local config = require("todoman.config")
+
 local M = {}
 
 local templates = {
@@ -22,12 +24,12 @@ local ftmpl = function(ftype)
 end
 
 M.base_file = function(title)
-	local tmpl = ftmpl(TODOMAN_CONFIG.filetype.name)
+	local tmpl = ftmpl(config.filetype.name)
 	return { string.format(tmpl.h1, title), "", tmpl.h2_do, "" }
 end
 
 M.todo_item = function(item)
-	local tmpl = ftmpl(TODOMAN_CONFIG.filetype.name)
+	local tmpl = ftmpl(config.filetype.name)
 	return string.format(tmpl.item, item)
 end
 
