@@ -38,3 +38,8 @@ Add item to todo-list:
 ```lua
 require("todoman").add("your item")
 ```
+
+Add Telescope pickers `(:Telescope todoman)` to browse all todo-files:
+```lua
+require("telescope").load_extension("todoman")
+```
