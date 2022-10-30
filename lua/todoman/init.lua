@@ -1,4 +1,4 @@
-TODOMAN_CONFIG = require("todoman.config")
+local config = require("todoman.config")
 
 local utils = require("todoman.utils")
 local templates = require("todoman.templates")
@@ -8,7 +8,7 @@ local M = {}
 
 M.setup = function(opts)
 	opts = opts or {}
-	TODOMAN_CONFIG.apply(opts)
+	config.apply(opts)
 end
 
 local project_name = function()

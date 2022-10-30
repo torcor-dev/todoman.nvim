@@ -1,11 +1,12 @@
 local templates = require("todoman.templates")
+local config = require("todoman.config")
 
 local Path = require("plenary.path")
 
 local M = {}
 
 M.get_or_create_dir = function()
-	local fp = Path:new(TODOMAN_CONFIG.save_dir)
+	local fp = Path:new(config.save_dir)
 	if not fp:exists() then
 		print("Creating dirs")
 		fp:mkdir({ parents = true })
@@ -15,7 +16,7 @@ end
 
 M.get_fp = function(project_name)
 	local dir = M.get_or_create_dir()
-	local fp = Path:new(dir, project_name) .. TODOMAN_CONFIG.filetype.suffix
+	local fp = Path:new(dir, project_name) .. config.filetype.suffix
 	local exists = vim.loop.fs_stat(fp)
 	return fp, exists
 end
